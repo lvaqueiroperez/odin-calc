@@ -1,6 +1,23 @@
 let a = "";
 let b = "";
 let operator = "";
+let calculatorArray = [0];
+
+// haré la calculadora mediante un array con todos los botones presionados, usando métodos como push, pop, split, join... etc.
+// intentar usar mejor el event bubbling y que le código quede más limpio, sin tantas clases relativas a esto
+const buttonsContainer = document.querySelector(".buttons");
+const display = document.querySelector(".display");
+
+display.textContent = "";
+
+buttonsContainer.addEventListener("click", (event) => {
+
+    if (event.target.className === "content") {
+        display.textContent += event.target.textContent;
+    }
+
+});
+
 
 function add(a, b) {
     return a + b;
