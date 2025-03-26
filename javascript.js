@@ -2,6 +2,7 @@ let a = "";
 let b = "";
 let operator = "";
 let operationArray = [];
+let operationDone = false;
 
 // CALCULADORA SIMPLE, 22+22 SOLO UN OPERADOR Y 2 OPERANDOS
 // intentar usar mejor el event bubbling y que le código quede más limpio, sin tantas clases relativas a esto
@@ -13,7 +14,14 @@ display.textContent = "";
 buttonsContainer.addEventListener("click", (event) => {
 
     if (event.target.className === "content") {
-        display.textContent += event.target.textContent;
+
+        if (operationDone) {
+            display.textContent = event.target.textContent;
+            operationDone = false;
+        } else {
+            display.textContent += event.target.textContent;
+        }
+
     } else {
 
         switch (event.target.id) {
@@ -54,6 +62,7 @@ function changeTextContent() {
 
         display.textContent = operate(...operationArray);
         operationArray = [];
+        operationDone = true;
 
     } else {
         if (display.textContent === "") {
@@ -62,6 +71,7 @@ function changeTextContent() {
             display.textContent = display.textContent;
         } else {
             display.textContent = "SYNTAX ERROR";
+            operationDone = true;
         }
     }
 
