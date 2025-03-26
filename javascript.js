@@ -4,6 +4,10 @@ let operator = "";
 let operationArray = [];
 let operationDone = false;
 
+// FALTA ARREGLAR EL OVERFLOW DE NÚMEROS Y PONERLA BONITA
+// AÑADIR KEYBOARD SUPPORT PARECE FÁCIL CON LOS EVENTOS DE KEYDOWN Y USANDO EL TARGET.KEY ETC
+// REFACTORIZAR AÚN MÁS EL CÓDIGO, SIRVE PARA REPASAR
+
 // CALCULADORA SIMPLE, 22+22 SOLO UN OPERADOR Y 2 OPERANDOS
 // intentar usar mejor el event bubbling y que le código quede más limpio, sin tantas clases relativas a esto
 const buttonsContainer = document.querySelector(".buttons");
