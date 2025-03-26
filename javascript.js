@@ -10,6 +10,9 @@ const display = document.querySelector(".display");
 
 display.textContent = "";
 
+const operators = buttonsContainer.querySelectorAll(".operator");
+disableOperators();
+
 buttonsContainer.addEventListener("click", (event) => {
 
     if (event.target.className === "content") {
@@ -23,7 +26,7 @@ buttonsContainer.addEventListener("click", (event) => {
                 break;
             case "equal":
                 console.log("OPERATE");
-                //operate(getOperateParameters());
+                getOperateParameters();
                 break;
 
         }
@@ -31,6 +34,12 @@ buttonsContainer.addEventListener("click", (event) => {
     }
 
 });
+
+function disableOperators() {
+    operators.forEach((item) => {
+        item.setAttribute("disable", "disable");
+    });
+}
 
 function clearDisplay() {
     display.textContent = "";
