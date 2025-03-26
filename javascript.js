@@ -51,6 +51,8 @@ function backspace(element) {
 function changeTextContent() {
     if (checkTextContent(display.textContent)) {
         display.textContent = operate(...operationArray);
+    } else {
+        display.textContent = "SYNTAX ERROR";
     }
 }
 
@@ -76,7 +78,6 @@ function checkTextContent(string) {
             return true;
 
         } else {
-            display.textContent = "SYNTAX ERROR";
             return false;
         }
 
@@ -89,7 +90,6 @@ function checkTextContent(string) {
             return true;
 
         } else {
-            display.textContent = "SYNTAX ERROR";
             return false;
         }
 
@@ -102,7 +102,6 @@ function checkTextContent(string) {
             return true;
 
         } else {
-            display.textContent = "SYNTAX ERROR";
             return false;
         }
 
@@ -115,7 +114,6 @@ function checkTextContent(string) {
             return true;
 
         } else {
-            display.textContent = "SYNTAX ERROR";
             return false;
         }
 
