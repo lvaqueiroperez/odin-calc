@@ -45,6 +45,7 @@ buttonsContainer.addEventListener("click", (event) => {
 
 function clearDisplay(element) {
     element.textContent = "";
+    operationArray = [];
 }
 
 function backspace(element) {
