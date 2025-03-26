@@ -39,7 +39,6 @@ function clearDisplay() {
     display.textContent = "";
 }
 
-// split meterá un espacio vacío en el array que devuelve si solo existe un elemento y el separador en esa string "a/" por ejemplo, también en otros casos lo pone.
 function checkTextContent(string) {
 
 
