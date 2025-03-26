@@ -1,7 +1,7 @@
 let a = "";
 let b = "";
 let operator = "";
-let calculatorArray = [0];
+let operationArray = [];
 
 // CALCULADORA SIMPLE, 22+22 SOLO UN OPERADOR Y 2 OPERANDOS
 // intentar usar mejor el event bubbling y que le código quede más limpio, sin tantas clases relativas a esto
@@ -21,8 +21,12 @@ buttonsContainer.addEventListener("click", (event) => {
             case "clear":
                 clearDisplay();
                 break;
+
             case "equal":
-                getOperateParameters(display.textContent);
+
+                if (checkTextContent(display.textContent)) {
+                    display.textContent = operate(...operationArray);
+                }
                 break;
 
         }
@@ -36,33 +40,72 @@ function clearDisplay() {
 }
 
 // split meterá un espacio vacío en el array que devuelve si solo existe un elemento y el separador en esa string "a/" por ejemplo, también en otros casos lo pone.
-function getOperateParameters(string) {
+function checkTextContent(string) {
 
-    let operationArray = [];
+
 
     if (string === "") {
 
         display.textContent = "";
+        return false;
+
+    } else if (!isNaN(+string)) {
+
+        display.textContent = string;
+        return false;
 
     } else if (string.includes("/")) {
 
         operationArray = string.split("/");
-        checkOperationArray(operationArray);
+
+        if (checkOperationArray(operationArray)) {
+
+            operationArray.push("/");
+            return true;
+
+        } else {
+            display.textContent = "SYNTAX ERROR";
+            return false;
+        }
 
     } else if (string.includes("*")) {
 
         operationArray = string.split("*");
-        checkOperationArray(operationArray);
+        if (checkOperationArray(operationArray)) {
+
+            operationArray.push("*");
+            return true;
+
+        } else {
+            display.textContent = "SYNTAX ERROR";
+            return false;
+        }
 
     } else if (string.includes("-")) {
 
         operationArray = string.split("-");
-        checkOperationArray(operationArray);
+        if (checkOperationArray(operationArray)) {
+
+            operationArray.push("-");
+            return true;
+
+        } else {
+            display.textContent = "SYNTAX ERROR";
+            return false;
+        }
 
     } else if (string.includes("+")) {
 
         operationArray = string.split("+");
-        checkOperationArray(operationArray);
+        if (checkOperationArray(operationArray)) {
+
+            operationArray.push("+");
+            return true;
+
+        } else {
+            display.textContent = "SYNTAX ERROR";
+            return false;
+        }
 
     }
 
@@ -75,8 +118,9 @@ function checkOperationArray(operationArray) {
     if ((operationArray.length === 2) && (!isNaN(operationArray[0])) && (!isNaN(operationArray[1])) && (operationArray[0] !== "") && (operationArray[1] !== "")) {
         console.log(operationArray);
         console.log("approved!");
+        return true;
     } else {
-        display.textContent = "SYNTAX ERROR";
+        return false;
     }
 }
 
@@ -96,7 +140,7 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(num1, operator, num2) {
+function operate(num1, num2, operator) {
 
     switch (operator) {
         case "+":
@@ -107,8 +151,6 @@ function operate(num1, operator, num2) {
             return multiply(num1, num2);
         case "/":
             return divide(num1, num2);
-        default:
-            return "SYNTAX ERROR";
 
     }
 
