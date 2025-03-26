@@ -10,12 +10,9 @@ const display = document.querySelector(".display");
 
 display.textContent = "";
 
-const operators = buttonsContainer.querySelectorAll(".operator");
-disableOperators();
-
 buttonsContainer.addEventListener("click", (event) => {
 
-    if (event.target.className === "content") {
+    if (event.target.className.split(" ").includes("content")) {
         display.textContent += event.target.textContent;
     } else {
 
@@ -26,7 +23,7 @@ buttonsContainer.addEventListener("click", (event) => {
                 break;
             case "equal":
                 console.log("OPERATE");
-                getOperateParameters();
+                //getOperateParameters();
                 break;
 
         }
@@ -34,12 +31,6 @@ buttonsContainer.addEventListener("click", (event) => {
     }
 
 });
-
-function disableOperators() {
-    operators.forEach((item) => {
-        item.setAttribute("disable", "disable");
-    });
-}
 
 function clearDisplay() {
     display.textContent = "";
