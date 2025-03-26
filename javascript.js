@@ -52,7 +52,8 @@ function changeTextContent() {
     if (checkTextContent(display.textContent)) {
         display.textContent = operate(...operationArray);
     } else {
-        display.textContent = "SYNTAX ERROR";
+        display.textContent = "";
+        alert("ERROR");
     }
 }
 
