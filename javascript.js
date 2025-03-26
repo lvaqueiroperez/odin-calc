@@ -7,6 +7,10 @@ let operationDone = false;
 // FALTA ARREGLAR EL OVERFLOW DE NÚMEROS Y PONERLA BONITA
 // AÑADIR KEYBOARD SUPPORT PARECE FÁCIL CON LOS EVENTOS DE KEYDOWN Y USANDO EL TARGET.KEY ETC
 // REFACTORIZAR AÚN MÁS EL CÓDIGO, SIRVE PARA REPASAR
+// Poner un cursor pointer también
+// Función que checkea cada vez que añadimos algo al display la longitud del texto del mismo.
+// Si llega a cierto número de caracteres, borrará el último número automáticamente y no lo dejará existir en el display, así evito el overflow
+// comprobar que esto último sea responsive
 
 // CALCULADORA SIMPLE, 22+22 SOLO UN OPERADOR Y 2 OPERANDOS
 // intentar usar mejor el event bubbling y que le código quede más limpio, sin tantas clases relativas a esto
