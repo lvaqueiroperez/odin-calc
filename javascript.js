@@ -49,24 +49,32 @@ function backspace(element) {
 }
 
 function changeTextContent() {
+
     if (checkTextContent(display.textContent)) {
+
         display.textContent = operate(...operationArray);
+        operationArray = [];
+
     } else {
-        display.textContent = "";
-        alert("ERROR");
+        if (display.textContent === "") {
+            display.textContent = "";
+        } else if (!isNaN(+display.textContent)) {
+            display.textContent = display.textContent;
+        } else {
+            display.textContent = "SYNTAX ERROR";
+        }
     }
+
 }
 
 function checkTextContent(string) {
 
     if (string === "") {
 
-        display.textContent = "";
         return false;
 
     } else if (!isNaN(+string)) {
 
-        display.textContent = string;
         return false;
 
     } else if (string.includes("/")) {
