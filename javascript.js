@@ -54,8 +54,6 @@ function backspace(element) {
 
 function checkTextContent(string) {
 
-
-
     if (string === "") {
 
         display.textContent = "";
@@ -120,8 +118,6 @@ function checkTextContent(string) {
         }
 
     }
-
-
 
 }
 
