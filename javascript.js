@@ -3,7 +3,7 @@ let b = "";
 let operator = "";
 let calculatorArray = [0];
 
-// haré la calculadora mediante un array con todos los botones presionados, usando métodos como push, pop, split, join... etc.
+// CALCULADORA SIMPLE, 22+22 SOLO UN OPERADOR Y 2 OPERANDOS
 // intentar usar mejor el event bubbling y que le código quede más limpio, sin tantas clases relativas a esto
 const buttonsContainer = document.querySelector(".buttons");
 const display = document.querySelector(".display");
@@ -12,7 +12,7 @@ display.textContent = "";
 
 buttonsContainer.addEventListener("click", (event) => {
 
-    if (event.target.className.split(" ").includes("content")) {
+    if (event.target.className === "content") {
         display.textContent += event.target.textContent;
     } else {
 
@@ -22,8 +22,7 @@ buttonsContainer.addEventListener("click", (event) => {
                 clearDisplay();
                 break;
             case "equal":
-                console.log("OPERATE");
-                //getOperateParameters();
+                getOperateParameters(display.textContent);
                 break;
 
         }
@@ -34,6 +33,51 @@ buttonsContainer.addEventListener("click", (event) => {
 
 function clearDisplay() {
     display.textContent = "";
+}
+
+// split meterá un espacio vacío en el array que devuelve si solo existe un elemento y el separador en esa string "a/" por ejemplo, también en otros casos lo pone.
+function getOperateParameters(string) {
+
+    let operationArray = [];
+
+    if (string === "") {
+
+        display.textContent = "";
+
+    } else if (string.includes("/")) {
+
+        operationArray = string.split("/");
+        checkOperationArray(operationArray);
+
+    } else if (string.includes("*")) {
+
+        operationArray = string.split("*");
+        checkOperationArray(operationArray);
+
+    } else if (string.includes("-")) {
+
+        operationArray = string.split("-");
+        checkOperationArray(operationArray);
+
+    } else if (string.includes("+")) {
+
+        operationArray = string.split("+");
+        checkOperationArray(operationArray);
+
+    }
+
+
+
+}
+
+function checkOperationArray(operationArray) {
+    // in some cases, array.split() puts empty spaces in the array, so we have to check for those just in case
+    if ((operationArray.length === 2) && (!isNaN(operationArray[0])) && (!isNaN(operationArray[1])) && (operationArray[0] !== "") && (operationArray[1] !== "")) {
+        console.log(operationArray);
+        console.log("approved!");
+    } else {
+        display.textContent = "SYNTAX ERROR";
+    }
 }
 
 function add(a, b) {
