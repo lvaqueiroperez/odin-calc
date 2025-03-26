@@ -46,7 +46,6 @@ function backspace(element) {
     newText = newText.join("");
     element.textContent = newText;
 
-
 }
 
 function changeTextContent() {
