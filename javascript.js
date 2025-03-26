@@ -14,6 +14,20 @@ buttonsContainer.addEventListener("click", (event) => {
 
     if (event.target.className === "content") {
         display.textContent += event.target.textContent;
+    } else {
+
+        switch (event.target.id) {
+
+            case "clear":
+                clearDisplay();
+                break;
+            case "equal":
+                console.log("OPERATE");
+                //operate(getOperateParameters());
+                break;
+
+        }
+
     }
 
 });
