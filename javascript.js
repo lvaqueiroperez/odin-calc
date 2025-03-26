@@ -19,7 +19,7 @@ buttonsContainer.addEventListener("click", (event) => {
         switch (event.target.id) {
 
             case "clear":
-                clearDisplay();
+                clearDisplay(display);
                 break;
 
             case "equal":
@@ -29,14 +29,27 @@ buttonsContainer.addEventListener("click", (event) => {
                 }
                 break;
 
+            case "backspace":
+                backspace(display);
+                break;
         }
 
     }
 
 });
 
-function clearDisplay() {
-    display.textContent = "";
+function clearDisplay(element) {
+    element.textContent = "";
+}
+
+function backspace(element) {
+
+    let newText = element.textContent.split("");
+    newText.splice(-1, 1);
+    newText = newText.join("");
+    element.textContent = newText;
+
+
 }
 
 function checkTextContent(string) {
