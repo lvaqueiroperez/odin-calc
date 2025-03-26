@@ -32,6 +32,9 @@ buttonsContainer.addEventListener("click", (event) => {
 
 });
 
+function clearDisplay() {
+    display.textContent = "";
+}
 
 function add(a, b) {
     return a + b;
