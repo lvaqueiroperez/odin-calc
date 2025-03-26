@@ -23,10 +23,7 @@ buttonsContainer.addEventListener("click", (event) => {
                 break;
 
             case "equal":
-
-                if (checkTextContent(display.textContent)) {
-                    display.textContent = operate(...operationArray);
-                }
+                changeTextContent();
                 break;
 
             case "backspace":
@@ -50,6 +47,12 @@ function backspace(element) {
     element.textContent = newText;
 
 
+}
+
+function changeTextContent() {
+    if (checkTextContent(display.textContent)) {
+        display.textContent = operate(...operationArray);
+    }
 }
 
 function checkTextContent(string) {
