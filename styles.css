@@ -23,6 +23,8 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    border: 4px solid rgb(69, 69, 185);
+    border-radius: 2px;
 }
 
 
@@ -37,7 +39,8 @@ body {
 
 .display {
     width: 90%;
-    border: gray 1px solid;
+    border: gray 2px solid;
+    border-radius: 2px;
     height: 70%;
     display: flex;
     justify-content: center;
@@ -78,6 +81,7 @@ body {
 .row div {
     padding: 20px;
     border: 1px rgb(218, 218, 218) solid;
+    border-radius: 2px;
     flex: 1 1 0;
     width: 0;
     display: flex;
@@ -90,6 +94,7 @@ body {
 .column2 div {
     padding: 20px;
     border: 1px rgb(218, 218, 218) solid;
+    border-radius: 2px;
     flex: 1 1 0;
     width: 0;
     display: flex;
