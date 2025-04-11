@@ -4,15 +4,11 @@ let operator = "";
 let operationArray = [];
 let operationDone = false;
 
-// FALTA ARREGLAR EL OVERFLOW DE NÚMEROS Y PONERLA BONITA
 // AÑADIR KEYBOARD SUPPORT PARECE FÁCIL CON LOS EVENTOS DE KEYDOWN Y USANDO EL TARGET.KEY ETC
-// REFACTORIZAR AÚN MÁS EL CÓDIGO, SIRVE PARA REPASAR
-// Función que checkea cada vez que añadimos algo al display la longitud del texto del mismo.
-// Si llega a cierto número de caracteres, borrará el último número automáticamente y no lo dejará existir en el display, así evito el overflow
-// comprobar que esto último sea responsive
-
 // CALCULADORA SIMPLE, 22+22 SOLO UN OPERADOR Y 2 OPERANDOS
 // intentar usar mejor el event delegation y que le código quede más limpio, sin tantas clases relativas a esto
+// 27 CHARACTERS MAX
+// TUVE QUE ABARCAR ESTE PROYECTO CON MÁS PLANIFICACIÓN PARA QUE AL FINAL TODO ESTUVIESE PERFECTAMENTE PLANEADO Y CODIFICADO...
 const buttonsContainer = document.querySelector(".buttons");
 const display = document.querySelector(".display");
 
@@ -27,6 +23,8 @@ buttonsContainer.addEventListener("click", (event) => {
 function checkPressedButton(event) {
 
     if (event.target.className === "content") {
+
+        checkDisplayLength();
 
         if (operationDone) {
 
@@ -56,6 +54,12 @@ function checkPressedButton(event) {
 
     }
 
+}
+
+function checkDisplayLength() {
+    if (display.textContent.length === 27) {
+        display.textContent = display.textContent.slice(0, display.textContent.length - 1);
+    }
 }
 
 function clearDisplay(element) {
