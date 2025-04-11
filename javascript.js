@@ -99,6 +99,7 @@ function checkTextContent(string) {
 
         return false;
 
+        // we want a whole operation, not only a number
     } else if (!isNaN(+string)) {
 
         return false;
@@ -154,6 +155,7 @@ function checkTextContent(string) {
 
     }
 
+    // if nothing is true, just return false
     return false;
 
 }
