@@ -20,11 +20,19 @@ display.textContent = "";
 
 buttonsContainer.addEventListener("click", (event) => {
 
+    checkPressedButton(event);
+
+});
+
+function checkPressedButton(event) {
+
     if (event.target.className === "content") {
 
         if (operationDone) {
+
             display.textContent = event.target.textContent;
             operationDone = false;
+
         } else {
             display.textContent += event.target.textContent;
         }
@@ -48,7 +56,7 @@ buttonsContainer.addEventListener("click", (event) => {
 
     }
 
-});
+}
 
 function clearDisplay(element) {
     element.textContent = "";
