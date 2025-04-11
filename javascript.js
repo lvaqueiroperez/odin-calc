@@ -13,7 +13,7 @@ let operationDone = false;
 // comprobar que esto último sea responsive
 
 // CALCULADORA SIMPLE, 22+22 SOLO UN OPERADOR Y 2 OPERANDOS
-// intentar usar mejor el event bubbling y que le código quede más limpio, sin tantas clases relativas a esto
+// intentar usar mejor el event delegation y que le código quede más limpio, sin tantas clases relativas a esto
 const buttonsContainer = document.querySelector(".buttons");
 const display = document.querySelector(".display");
 
